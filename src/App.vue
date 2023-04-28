@@ -9,7 +9,7 @@ export default {
     vMainFooter,
     vMainWrapper
   },
-  data () {
+  data() {
     return {
       mainTitle: 'Welcome to the Shop at the edge of the universe'
     }

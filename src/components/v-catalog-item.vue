@@ -4,7 +4,7 @@
     <h3 class="v-catalog-item__name">{{ product_data.name }}</h3>
     <p class="v-catelog-item__about">{{ product_data.about }}</p>
     <p class="v-catalog-item__price">{{ product_data.price }}</p>
-    <button class="v-catalog-item__take_btn" @click="sendDataToCatalog">Take me</button>
+    <button class="v-catalog-item__take_btn" @click="takeToCart">Take me</button>
   </div>
 </template>
 
@@ -14,17 +14,20 @@ export default {
   props: {
     product_data: {
       type: Object,
-      default () {
+      default() {
         return {}
       }
     }
   },
   methods: {
-    sendDataToCatalog () {
+    sendDataToCatalog() {
       this.$emit('articleFromCatalogItem', this.product_data.article)
+    },
+    takeToCart() {
+      this.$emit('takeToCart', this.product_data)
     }
   },
-  data () {
+  data() {
     return {
       name: 'Some One'
     }

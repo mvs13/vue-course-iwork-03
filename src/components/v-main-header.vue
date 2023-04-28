@@ -9,7 +9,7 @@
 <script>
 export default {
   name: 'v-main-header',
-  data () {
+  data() {
     return {
       headerTitle: 'A few steps from the edge of the universe...'
     }
