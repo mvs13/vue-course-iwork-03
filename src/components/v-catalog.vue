@@ -1,6 +1,16 @@
 <template>
   <div class="v-catalog">
-    <h2 class="v-catalog__title">{{ title }}</h2>
+    <div class="v-cataog__header">
+      <h2 class="v-catalog__title">{{ title }}</h2>
+      <!-- <router-link :to="{name: 'Cart', params: { cart_data: CART }}"> -->
+      <router-link to="/cart">
+        <div class="v-catalog__link2card">
+          <i class="medium material-icons">shopping_cart</i>
+          <span class="badge">{{ CART.length }}</span>
+        </div>
+      </router-link>
+    </div>
+
     <div class="items__wrapper">
       <vCatalogItem
         v-for="product in PRODUCTS"
@@ -19,7 +29,7 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'v-catalog',
   computed: {
-    ...mapGetters(['PRODUCTS'])
+    ...mapGetters(['PRODUCTS', 'CART'])
   },
   components: { vCatalogItem },
   methods: {
@@ -50,10 +60,22 @@ export default {
 
 <style>
 .v-catalog {
-  width: 60%;
   padding: 16px;
-  border-radius: 16px 0 0 16px;
-  background-color: #9966CC;
+  background-color: var(--color-light);
+}
+
+.v-cataog__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.v-catalog__link2card > i{
+  color: var(--color-darck);
+}
+
+.v-catalog__link2card > span {
+  background-color: var(--color-semidarck);
 }
 
 .items__wrapper {

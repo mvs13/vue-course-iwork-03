@@ -1,10 +1,26 @@
 <template>
   <div class="v-catalog-item">
-    <img class="v-catalog-item__image" :src="require('../assets/images/'+product_data.image)" :alt="product_data.name">
-    <h3 class="v-catalog-item__name">{{ product_data.name }}</h3>
-    <p class="v-catelog-item__about">{{ product_data.about }}</p>
-    <p class="v-catalog-item__price">{{ product_data.price }}</p>
-    <button class="v-catalog-item__take_btn" @click="takeToCart">Take me</button>
+    <div class="card medium">
+      <div class="card-image">
+        <img :src="require('../assets/images/'+product_data.image)" :alt="product_data.name">
+        <a
+          class="btn-floating halfway-fab waves-effect waves-light red"
+          @click="takeToCart"
+        >
+          <i class="material-icons">add_circle_outline</i>
+        </a>
+      </div>
+      <div class="card-content">
+        <h3 class="card-title v-catalog-item__title">{{ product_data.name }}</h3>
+        <p class="v-catelog-item__about">
+          {{ product_data.about }}
+        </p>
+        <p class="v-catalog-item__price">
+          {{ product_data.price }}
+          <span class="tooltipped" data-position="right" data-tooltip="Galactic Credit Standard">GCS</span>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -35,9 +51,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .v-catalog-item{
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -48,18 +64,6 @@ export default {
   margin: 20px;
   border-radius: 16px;
   color:wheat;
-  background-color: #330066;
-}
-
-.v-catalog-item__name {
-  color: #9966CC;
-}
-
-.v-catalog-item__take_btn {
-  padding: 4px 8px;
-  border: none;
-  border-radius: 8px;
-  background-color: #9966CC;
-  color: #330099;
+  background-color: #330066; */
 }
 </style>

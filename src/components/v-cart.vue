@@ -1,18 +1,21 @@
 <template>
   <div class="v-cart">
-    <h2 class="cart__title">{{ title }}</h2>
+    <h2 class="v-cart__title">{{ title }}</h2>
+    <p>Your cart is filled to {{ AMOUNT }}</p>
     <vCartItem
-      v-for="item in cart_data"
+      v-for="item in CART"
       :key="item.article"
       :cart_item_data="item"
       @deleteFromCart="deleteFromCart"
+      @increaseQuantityInCart="increaseQuantityInCart"
+      @decreaseQuantityInCart="decreaseQuantityInCart"
     />
   </div>
 </template>
 
 <script>
 import vCartItem from './v-cart-item.vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'v-cart',
@@ -28,11 +31,20 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['DELETE_FROM_CARD']),
+    ...mapActions(['DELETE_FROM_CARD', 'DECREASE_QUANTITY_IN_CART', 'INCREASE_QUANTITY_IN_CART']),
     deleteFromCart(data) {
       this.DELETE_FROM_CARD(data)
       // console.log(data)
+    },
+    increaseQuantityInCart(data) {
+      this.INCREASE_QUANTITY_IN_CART(data)
+    },
+    decreaseQuantityInCart(data) {
+      this.DECREASE_QUANTITY_IN_CART(data)
     }
+  },
+  computed: {
+    ...mapGetters(['CART', 'AMOUNT'])
   },
   data() {
     return {
@@ -44,15 +56,14 @@ export default {
 
 <style>
 .v-cart {
-  width: 40%;
   padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-radius: 0 16px 16px 0;
-  background-color: #9966CC;
+  color: var(--color-main);
+  background-color: var(--color-semilight);
 }
-.cart__title {
-  color: #330099;
+.v-cart__title {
+  color: var(--color-darck);
 }
 </style>

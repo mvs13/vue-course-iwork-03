@@ -1,0 +1,82 @@
+/* colors */
+/* https://colorscheme.ru/#4n91Tw0w0w0w0 */
+.colors {}
+
+:root {
+    --color-darck: #330099;
+    --color-semidarck: #333399;
+    --color-main: #330066;
+    --color-semilight: #6633CC;
+    --color-light: #9966CC;
+}
+
+/* additional normalize */
+.additional_normalize {}
+
+body {
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+/* вычисление padding за счёт размеров box для документа в целом */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*  вычисление padding за счёт размеров box для всех элементов внутри документа */
+
+/* common classes */
+.common_classes {}
+
+body {
+    min-width: 320px;
+    /* Минимальная ширина устройства */
+    font-size: 16px;
+    font-weight: 400;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+}
+
+.list-reset {
+    margin: 0;
+    /* сброс внешних отступов */
+    padding: 0;
+    /* сброс внутренних отступов */
+    list-style: none;
+    /* сброс оформлений списков */
+}
+
+.btn-reset {
+    padding: 0;
+    /* сброс внутренних отступов */
+    border: none;
+    /* плоская кнопка, убрать границы */
+    background-color: transparent;
+    /* нет цвета по умолчанию */
+    cursor: pointer;
+    /* указатель - признак возможности взаимодействия */
+}
+
+input:focus-visible {
+    outline: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.hidden-block {
+    display: none !important;
+}
